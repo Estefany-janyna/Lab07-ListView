@@ -10,7 +10,9 @@ namespace Lab06
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            ///MainPage = new MainPage();
+            ///permite que en la app 
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

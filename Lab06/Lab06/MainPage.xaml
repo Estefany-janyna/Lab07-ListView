@@ -2,24 +2,38 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Lab06"
              x:Class="Lab06.MainPage"
-             Title="Grouped People List">
+             Title="Lista de personas - Taipe">
+    
+    <!--se usa para decirle a la pagina de la aplicacion cual es la fuente de datos, osea 
+    los datos que necesita para funcionar
+    en este caso la infor. lo tiene MainViewModel-->
     <ContentPage.BindingContext>
         <local:MainViewModel/>
     </ContentPage.BindingContext>
-    <ListView ItemsSource="{Binding ListOfPeople}" IsGroupingEnabled="true">
-        <ListView.GroupHeaderTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <Label Text="{Binding Encabezado}" FontAttributes="Bold" />
-                </ViewCell>
-            </DataTemplate>
-        </ListView.GroupHeaderTemplate>
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <Label Text="{Binding DisplayName}" />
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+     
+    <StackLayout>
+        <!--Crear un componenete de lista para mostrar datos-->
+        <ListView ItemsSource="{Binding ListOfPeople}" IsGroupingEnabled="true" >
+            <!--define la plantilla para los encabezados Headre=encabezado-->
+            <ListView.GroupHeaderTemplate>
+                <!--Es un formato que se le da  para los encabezados plantilla-->
+                <DataTemplate>
+                    <!--Es la celda-->
+                    <ViewCell>
+                        <!--para mostrar texto-->
+                        <Label Text="{Binding Encabezado}" FontAttributes="Bold" BackgroundColor="LightSkyBlue" 
+                               FontSize="Medium"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+                    <!--se muestrar los elementos inividuales-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding DisplayName}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

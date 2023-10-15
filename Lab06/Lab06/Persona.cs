@@ -6,6 +6,7 @@ namespace Lab06
 {
     public class Person
     {
+        //se define el modelo de la clase Persona
         public class Persona
         {
             public string Nombre { get; set; }
